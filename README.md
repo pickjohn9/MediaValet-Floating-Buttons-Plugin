@@ -1,20 +1,20 @@
 # [Floating Buttons for MediaValet](https://www.mediavalet.com/)
 
-Contributors: MediaValet
-Donate link: https://www.mediavalet.com/
-Tags: buttons, font awesome
-Requires at least: 3.0.1
-Tested up to: 4.9.4
-Stable tag: 4.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
+Contributors: MediaValet__
+Donate link: https://www.mediavalet.com/ __
+Tags: buttons, font awesome__
+Requires at least: 3.0.1__
+Tested up to: 4.9.4__
+Stable tag: 4.3__
+License: GPLv2 or later__
+License URI: http://www.gnu.org/licenses/gpl-2.0.html __
+<br>
 Simple Frontend plugin to display floating button icons on the left side of MediaValet's website.
 
 ## Description
 
-Media Valet's Floating Buttons is a simple front end plugin created specifically for displaying floating icons on the lefthand side of MediaValet's website. The plugin includes an integration with Font Awesome 4.7, used for the icons. This serves a dual purpose of font awesome icon integrations throughout the rest of the WordPress website. No shortcodes are currently implemented, icons will need to be rendered via HTML, for a full list visit: https://fontawesome.com/icons
-
+Media Valet's Floating Buttons is a simple front end plugin created specifically for displaying floating icons on the lefthand side of MediaValet's website. The plugin includes an integration with Font Awesome 4.7, used for the icons. This serves a dual purpose of font awesome icon integrations throughout the rest of the WordPress website. No shortcodes are currently implemented, icons will need to be rendered via HTML, for a full list visit: https://fontawesome.com/icons __
+<br>
 By default, the plugin will display two icons, one that links to MediaValet's Request a Demo page, the other to MediaValet's ROI Calculator page.
 
 ### Plugin's Current State:
@@ -62,8 +62,6 @@ Note: It is required that your theme uses the `wp_footer()` function in its temp
 * `mv-floating-buttons-public.css` - For styling the floating buttons
 * `mv-floating-buttons-public.js` - For including custom JavaScript
 
-### Important Plugin Functions and Class Names  
-
 ### Functions
 * `displayButtons()` - Prints the floating buttons onto page
 * `wp_footer()` - required by WordPress theme template, plugin injects button structure through this function
@@ -75,6 +73,6 @@ Note: It is required that your theme uses the `wp_footer()` function in its temp
 * `fb-btn#` - Replace # with the button number, used for directly targeting CSS changes
 
 
-### Author  Description 
+### Author  Description
 
 This plugin was written specifically for MediaValet's new website, the choice of a plugin is for easy installation when the new website is launched, without the need of a developer. As of now, further modifications such as styling or functional changes or additions require coding modifications. However this plugin package includes integrations for JS additions and an "admin" structure implementations with the intent for additional updates for allowing WordPress authors to modify the floating icons in the future.
