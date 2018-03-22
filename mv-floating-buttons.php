@@ -3,7 +3,7 @@
 /**
  *
  * @link              https://www.mediavalet.com/
- * @since             1.0.0
+ * @since             1.1.0
  * @package           Mv_Floating_Buttons
  *
  * @wordpress-plugin
