@@ -21,7 +21,7 @@ By default, the plugin will display two icons, one that links to MediaValet's Re
 
 *   The current version of the plugin does not allow any modifications of the icons through WordPress Admin Panel. All icon modifications must be done
 *   As of now, adding additional icons must be done through the `mv-floating-buttons.php` file. Modifications can be made directly into the `displayButtons()` function. The function injects HTML through the `echo` statement, the class tag for building an icon is named `floatButton`.
-*   This plugin comes with a JQuery integration setup for use with the intent of a future integration of toggling the icons based on click events.
+*   This plugin comes with a JQuery integration setup for toggle click events.
 *   A backend integration is intended for future development, functions are included for adding a "WordPress Custom Post Type", that will be used as Icons.
 
 
@@ -48,6 +48,11 @@ Note: It is required that your theme uses the `wp_footer()` function in its temp
 
 
 ## Changelog
+
+### 1.1.0
+* Integrated JQuery click events for toggling the on screen icons
+* Corrected Mobile issues - Icons now hide on devices that 600px or smaller
+* Corrected Issue with FireFox and Safari alignments 
 
 ### 1.0.0
 * Initial build of the plugin.

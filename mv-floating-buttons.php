@@ -79,7 +79,7 @@ function displayButtons() {
 
 	// Use the 'floatButton' class in the <a> tag sections to create additional floating Icons
 	// Icons are imported from Font Awesome version 4.7 - Visit https://fontawesome.com/icons?d=gallery for full list
-    echo '<div id="floatButtonContainer">
+    echo '<div id="floatButtonContainer" class="flyIn">
 
 						<a class="floatButton fb-green fb-btn1" href="https://www.mediavalet.com/request-live-demo/" target="_blank">
 							<span class="float-text">Request a Free Demo</span>
@@ -91,7 +91,14 @@ function displayButtons() {
 							<span class="float-icon fi-roi"><i class="fa fa-line-chart"></i></span>
 						</a>
 
-    	  </div>';
+    	  </div>
+				<button id="buttonToggleOff"><i class="fa fa-caret-left
+"></i></button>
+
+<button id="buttonToggleOn"><i class="fa fa-caret-right
+"></i></button>';
+
+
 }
 
 //Pushes the function to WordPress, displays floating buttons. Action requires theme to use wp_footer in its template
