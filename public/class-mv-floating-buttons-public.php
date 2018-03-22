@@ -4,7 +4,7 @@
  * The public-facing functionality of the plugin.
  *
  * @link       https://www.mediavalet.com/
- * @since      1.0.0
+ * @since      1.1.0
  *
  * @package    Mv_Floating_Buttons
  * @subpackage Mv_Floating_Buttons/public
