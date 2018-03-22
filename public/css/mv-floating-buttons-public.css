@@ -20,37 +20,6 @@
     background-color: #eb5425;
 }
 
-/*Hover Animation*/
-.fb-btn1 {
-    position: absolute;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-}
-
-/* left: -192px; */
-
-
-.fb-btn2 {
-    position: absolute;
-    top: 63px;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-}
-
-/* left: -145px; */
-
-
-.fb-btn1:hover, .fb-btn2:hover {
-    color: #fff;
-    transform: translateX(183px);
-    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
-    -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
-    -moz-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
-}
-
-
 /*Button Constructors*/
 .floatButton {
     display: block;
@@ -59,6 +28,18 @@
     padding: 10px 7px;
     text-align: right;
     width: 240px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+}
+
+.floatButton:hover {
+    color: #fff;
+    transform: translateX(183px);
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
+    -webkit-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
+    -moz-box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.15);
+    text-decoration: none;
 }
 
 .float-text {
