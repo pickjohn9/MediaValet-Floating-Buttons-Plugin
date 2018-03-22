@@ -13,12 +13,25 @@
 
 /*Button Colors*/
 .fb-green {
-    background-color: #7fba42;
+    background-color: #98c53f;
 }
 
 .fb-orange {
     background-color: #eb5425;
 }
+
+.fb-dark-blue {
+  background-color: #2483c5;
+}
+
+.fb-mid-blue {
+    background-color: #55a4da;
+}
+
+.fb-light-blue {
+    background-color: #71baea;
+}
+
 
 /*Button Constructors*/
 .floatButton {
