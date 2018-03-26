@@ -1,7 +1,7 @@
 # [Floating Buttons for MediaValet](https://www.mediavalet.com/)
 
 Contributors: MediaValet<br>
-Donate link: https://www.mediavalet.com/ <br>
+Company Website: https://www.mediavalet.com/ <br>
 Tags: buttons, font awesome<br>
 Requires at least: 3.0.1<br>
 Tested up to: 4.9.4<br>
@@ -52,7 +52,7 @@ Note: It is required that your theme uses the `wp_footer()` function in its temp
 ### 1.1.0
 * Integrated JQuery click events for toggling the on screen icons
 * Corrected Mobile issues - Icons now hide on devices that 600px or smaller
-* Corrected Issue with FireFox and Safari alignments 
+* Corrected Issue with FireFox and Safari alignments
 
 ### 1.0.0
 * Initial build of the plugin.
