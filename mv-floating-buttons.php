@@ -81,24 +81,22 @@ function displayButtons() {
 	// Icons are imported from Font Awesome version 4.7 - Visit https://fontawesome.com/icons?d=gallery for full list
     echo '<div id="floatButtonContainer" class="flyIn">
 
-						<a class="floatButton fb-green fb-btn1" href="https://www.mediavalet.com/request-live-demo/" target="_blank">
+						<a class="floatButton fb-dark-blue fb-btn1" href="https://www.mediavalet.com/request-live-demo/" target="_blank">
 							<span class="float-text">Request a Free Demo</span>
-							<span class="float-icon"><i class="fa fa-cloud"></i></span>
+							<span class="float-icon"><img src="' . plugins_url( 'public/img/demo.png', __FILE__ ) . '" alt="demo-icon"> </span>
 						</a>
 
-		    		<a class="floatButton fb-orange fb-btn2" href="https://www.mediavalet.com/digital-asset-management-roi/" target="_blank">
+		    		<a class="floatButton fb-light-blue fb-btn2" href="https://www.mediavalet.com/digital-asset-management-roi/" target="_blank">
 							<span class="float-text">ROI Calculator</span>
-							<span class="float-icon fi-roi"><i class="fa fa-line-chart"></i></span>
+							<span class="float-icon"><img src="' . plugins_url( 'public/img/ROI.png', __FILE__ ) . '" alt="ROI-icon"></span>
 						</a>
 
     	  </div>
-				<button id="buttonToggleOff"><i class="fa fa-caret-left
+				<button id="buttonToggleOff" class="flyIn"><i class="fa fa-caret-left
 "></i></button>
 
 <button id="buttonToggleOn"><i class="fa fa-caret-right
 "></i></button>';
-
-
 }
 
 //Pushes the function to WordPress, displays floating buttons. Action requires theme to use wp_footer in its template
