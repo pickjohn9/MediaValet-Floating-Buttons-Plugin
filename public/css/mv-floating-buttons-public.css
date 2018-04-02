@@ -213,36 +213,6 @@
 }
 
 
- /* Saved for future use */
-/*
-.toggleOffEffect {
-  animation: toggleOffEffect 1.5s ease 0.1s;
-}
-
-@keyframes toggleOffEffect {
-  from {
-  }
-
-  to {
-    top: 22%;
-    transform: rotate(180deg);
-  }
-}
-
-.toggleOnEffect {
-  animation: toggleOnEffect 1.5s ease 0.1s;
-}
-
-@keyframes toggleOnEffect {
-  from {
-  }
-
-  to {
-    top: 41%;
-    transform: rotate(180deg);
-  }
-} */
-
 
 
 /*Hide on mobile*/

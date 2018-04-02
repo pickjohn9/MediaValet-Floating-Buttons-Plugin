@@ -2,7 +2,7 @@
 
 Contributors: MediaValet<br>
 Company Website: https://www.mediavalet.com/ <br>
-Tags: buttons, font awesome<br>
+Tags: buttons, font awesome, custom image<br>
 Requires at least: 3.0.1<br>
 Tested up to: 4.9.4<br>
 Stable tag: 4.3<br>
@@ -15,14 +15,17 @@ Simple Frontend plugin to display floating button icons on the left side of Medi
 
 Media Valet's Floating Buttons is a simple front end plugin created specifically for displaying floating icons on the lefthand side of MediaValet's website. The plugin includes an integration with Font Awesome 4.7, used for the icons. This serves a dual purpose of font awesome icon integrations throughout the rest of the WordPress website. No shortcodes are currently implemented, icons will need to be rendered via HTML, for a full list visit: https://fontawesome.com/icons <br>
 <br>
+Note: Now icons are to be uploaded by the User as transparent PNGs sized at 115 x 115px. Option to swap between PNGs and font awesome will are in the backlog.
+<br>
 By default, the plugin will display two icons, one that links to MediaValet's Request a Demo page, the other to MediaValet's ROI Calculator page.
 
 ### Plugin's Current State:
 
-*   The current version of the plugin does not allow any modifications of the icons through WordPress Admin Panel. All icon modifications must be done
+*   A backend has been integrated to the WordPress admin panel labeled  "Floating Button Options". As of now this allows you to change the label, color, icon image, and link for the first TWO icons, any additional icons need to be coded using the built PHP functions in the `mv-floating-buttons.php` file.
 *   As of now, adding additional icons must be done through the `mv-floating-buttons.php` file. Modifications can be made directly into the `displayButtons()` function. The function injects HTML through the `echo` statement, the class tag for building an icon is named `floatButton`.
+*   To add an additional icons, use the function `constructButton()`, and input your buttons, link, color, label, and image filepath as parameters.
 *   This plugin comes with a JQuery integration setup for toggle click events.
-*   A backend integration is intended for future development, functions are included for adding a "WordPress Custom Post Type", that will be used as Icons.
+
 
 
 ## Installation
@@ -49,6 +52,9 @@ Note: It is required that your theme uses the `wp_footer()` function in its temp
 
 ## Changelog
 
+### 1.2.0
+* Integrated plugin options to the WordPress admin panel labeled  "Floating Button Options". Allows the ability to change the label, color, icon image, and link for the first TWO icons without modifying the plugin PHP files.
+
 ### 1.1.0
 * Integrated JQuery click events for toggling the on screen icons
 * Corrected Mobile issues - Icons now hide on devices that 600px or smaller
@@ -61,23 +67,25 @@ Note: It is required that your theme uses the `wp_footer()` function in its temp
 
 ## Developers Notes
 
-### Important Files:
-* `mv-floating-buttons.php` - Contains plugin functions and core code for building a floating ICON
+### Important Files
+* `mv-floating-buttons.php` - Contains plugin functions and core code for building a floating icon
 * `class-mv-floating-buttons-public.php` - Used for enqueuing Custom CSS files, Font Awesome Integration , and JavaScript integration to the Frontend
 * `mv-floating-buttons-public.css` - For styling the floating buttons
 * `mv-floating-buttons-public.js` - For including custom JavaScript
+* `mv-floating-buttons-admin.css` - For styling the plugin options page on the WordPress admin
+* `mv-floating-buttons-admin.js` - For jQuery integrations in the plugin options page, such as the color wheel and image upload option.
 
 ### Functions
 * `displayButtons()` - Prints the floating buttons onto page
+* `constructButton()` - Returns an HTML string that assembles a fully icons built, constructed via the parameters provided. Use this to create additional icons.   
 * `wp_footer()` - required by WordPress theme template, plugin injects button structure through this function
 
 ### Classes
 * `floatButton` - container for constructing a button. Contains both the icon and text
-* `float-text` - contains text for an icon
-* `float-icon` - contains font awesome icon
-* `fb-btn#` - Replace # with the button number, used for directly targeting CSS changes
+* `float-text` - container for the text label for a button
+* `float-icon` - container for PNG or font awesome icon
 
 
 ### Author  Description
 
-This plugin was written specifically for MediaValet's new website, the choice of a plugin is for easy installation when the new website is launched, without the need of a developer. As of now, further modifications such as styling or functional changes or additions require coding modifications. However this plugin package includes integrations for JS additions and an "admin" structure implementations with the intent for additional updates for allowing WordPress authors to modify the floating icons in the future.
+This plugin was written specifically for MediaValet's new website, the choice of a plugin is for easy installation when the new website is launched, without the need of a developer. As of now, the plugin options are limited to two icons across all pages. Further modifications such as styling or functional changes or additions require coding modifications.

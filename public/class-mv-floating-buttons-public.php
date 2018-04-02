@@ -75,7 +75,7 @@ class Mv_Floating_Buttons_Public {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/mv-floating-buttons-public.css', array(), $this->version, 'all' );
 
-		// Included for use of Font Awesome Icons
+		// Included for use of Font Awesome Icons, can be used in place of images, needs to be encoded as of now (not available in plugin options)
 		wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 	}
