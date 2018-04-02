@@ -2,14 +2,16 @@
  * Floating Buttons - Plugin specific CSS
  */
 
-#floatButtonContainer {
-    position: fixed;
-    z-index: 500;
-    top: 200px;
-    width: 240px;
-    height: 200px;
-    left: -183px;
+#fb-button-wrapper {
+  position: fixed;
+  z-index: 10000;
+  top: 18%;
+  width: 240px;
+  height: 100%;
+  left: -183px;
 }
+
+
 
 /*Button Colors*/
 .fb-green {
@@ -71,20 +73,17 @@
     margin: 0 0 -10px 0;
 }
 
-
 #buttonToggleOff {
-    display: none;
-    position: fixed;
-    z-index: 500;
-    top: 335px;
-    font-size: 1.2em;
-    background: none;
-    border: none;
-    border-radius: 10px;
-    width: 22px;
-    transition: 1s;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
+  display: none;
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  padding: 7px 10px 10px;
+  text-align: right;
+  width: 208px;
 }
 
 #buttonToggleOff :hover {
@@ -94,19 +93,16 @@
 }
 
 #buttonToggleOn {
-    position: fixed;
-    z-index: 500;
-    top: 190px;
-    font-size: 1.2em;
-    background: none;
-    border: none;
-    border-radius: 10px;
-    width: 22px;
-    transition: 1s;
-    transform: translateX(-70px);
-    -webkit-transform: translateX(-70px);
-    -moz-transform: translateX(-70px);
-
+  z-index: 500;
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  transition: 1s;
+  transform: translateX(-70px);
+  -webkit-transform: translateX(-70px);
+  -moz-transform: translateX(-70px);
+  margin-left: 195px;
 }
 
 #buttonToggleOn :hover {

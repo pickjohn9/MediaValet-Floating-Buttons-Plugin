@@ -84,19 +84,20 @@ function displayButtons() {
 	// Use the 'floatButton' class in the <a> tag sections to create additional floating Icons
 	// Icons are imported from Font Awesome version 4.7 - Visit https://fontawesome.com/icons?d=gallery for full list
     echo '
-			<fb-button-wrapper">
-					<div id="floatButtonContainer" class="flyIn">' .
-					constructButton('fb_icon1_link', 'fb_icon1_bgcolor', 'fb_icon1_label', 'icon-img1') . '' .
-					constructButton('fb_icon2_link', 'fb_icon2_bgcolor', 'fb_icon2_label', 'icon-img2') .
-					'
-    	  </div>
+				<div id="fb-button-wrapper">
+						<button id="buttonToggleOn"><i class="fa fa-caret-right
+						"></i></button>
+
+						<div id="floatButtonContainer" class="flyIn">' .
+						constructButton('fb_icon1_link', 'fb_icon1_bgcolor', 'fb_icon1_label', 'icon-img1') . '' .
+						constructButton('fb_icon2_link', 'fb_icon2_bgcolor', 'fb_icon2_label', 'icon-img2') .
+						'
+	    	  </div>
+
+					<button id="buttonToggleOff" class="flyIn"><i class="fa fa-caret-left
+	"></i></button>
+
 			</div>
-
-				<button id="buttonToggleOff" class="flyIn"><i class="fa fa-caret-left
-"></i></button>
-
-				<button id="buttonToggleOn"><i class="fa fa-caret-right
-				"></i></button>
 ';
 }
 
@@ -108,6 +109,7 @@ function constructButton($link, $color, $label, $img){
 									<span class="float-icon">' . printIcon($img, $width = 35, $height = 35) . '</span>
 								</a>';
 }
+
 
 
 // -------------- Creating Plugin Custom Options for the two icons -------------- //
