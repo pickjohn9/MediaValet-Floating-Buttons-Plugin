@@ -9,7 +9,7 @@
  * Plugin Name:       Media Valet Floating Buttons
  * Plugin URI:        https://www.mediavalet.com/
  * Description:       Displays the floating buttons on the left side of every page. Developed for creating links to MediaValet's Demo and ROI pages.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Author:            Media Valet - JP
  * Author URI:        https://www.mediavalet.com/
  * License:           GPL-2.0+
@@ -85,17 +85,18 @@ function displayButtons() {
 	// Icons are imported from Font Awesome version 4.7 - Visit https://fontawesome.com/icons?d=gallery for full list
     echo '
 				<div id="fb-button-wrapper">
-						<button id="buttonToggleOn"><i class="fa fa-caret-right
-						"></i></button>
+						<button id="buttonToggleOn"><i class="fa fa-caret-right"></i></button>
 
 						<div id="floatButtonContainer" class="flyIn">' .
-						constructButton('fb_icon1_link', 'fb_icon1_bgcolor', 'fb_icon1_label', 'icon-img1') . '' .
-						constructButton('fb_icon2_link', 'fb_icon2_bgcolor', 'fb_icon2_label', 'icon-img2') .
+						constructButton('fb_icon1_display', 'fb_icon1_link', 'fb_icon1_bgcolor', 'fb_icon1_label', 'icon-img1') . '' .
+						constructButton('fb_icon2_display', 'fb_icon2_link', 'fb_icon2_bgcolor', 'fb_icon2_label', 'icon-img2') . '' .
+						constructButton('fb_icon3_display', 'fb_icon3_link', 'fb_icon3_bgcolor', 'fb_icon3_label', 'icon-img3') . '' .
+						constructButton('fb_icon4_display', 'fb_icon4_link', 'fb_icon4_bgcolor', 'fb_icon4_label', 'icon-img4') . '' .
+						constructButton('fb_icon5_display', 'fb_icon5_link', 'fb_icon5_bgcolor', 'fb_icon5_label', 'icon-img5') .
 						'
-	    	  </div>
+	    	 </div>
 
-					<button id="buttonToggleOff" class="flyIn"><i class="fa fa-caret-left
-	"></i></button>
+				<button id="buttonToggleOff" class="flyIn"><i class="fa fa-caret-left"></i></button>
 
 			</div>
 ';
@@ -103,8 +104,8 @@ function displayButtons() {
 
 
 // Function for assembling and returning a floating button
-function constructButton($link, $color, $label, $img){
-		return '<a class="floatButton" href="' . get_option($link) . '" target="_blank" style="background-color: #'. get_option($color) . ';">
+function constructButton($display, $link, $color, $label, $img){
+		return '<a class="floatButton" href="' . get_option($link) . '" target="_blank" style="display: '. get_option($display) . '; background-color: #'. get_option($color) . ';">
 									<span class="float-text"> ' . get_option($label) . '</span>
 									<span class="float-icon">' . printIcon($img, $width = 35, $height = 35) . '</span>
 								</a>';
@@ -138,18 +139,38 @@ function floating_buttons_menu(){
 }
 
 function update_button_options(){
+		register_setting('fb-label-settings', 'fb_icon1_display');
 		register_setting('fb-label-settings', 'fb_icon1_label');
 		register_setting('fb-label-settings', 'fb_icon1_link');
 		register_setting('fb-label-settings', 'fb_icon1_img');
 		register_setting('fb-label-settings', 'fb_icon1_bgcolor');
 
+		register_setting('fb-label-settings', 'fb_icon2_display');
 		register_setting('fb-label-settings', 'fb_icon2_label');
 		register_setting('fb-label-settings', 'fb_icon2_link');
 		register_setting('fb-label-settings', 'fb_icon2_img');
 		register_setting('fb-label-settings', 'fb_icon2_bgcolor');
+
+		register_setting('fb-label-settings', 'fb_icon3_display');
+		register_setting('fb-label-settings', 'fb_icon3_label');
+		register_setting('fb-label-settings', 'fb_icon3_link');
+		register_setting('fb-label-settings', 'fb_icon3_img');
+		register_setting('fb-label-settings', 'fb_icon3_bgcolor');
+
+		register_setting('fb-label-settings', 'fb_icon4_display');
+		register_setting('fb-label-settings', 'fb_icon4_label');
+		register_setting('fb-label-settings', 'fb_icon4_link');
+		register_setting('fb-label-settings', 'fb_icon4_img');
+		register_setting('fb-label-settings', 'fb_icon4_bgcolor');
+
+		register_setting('fb-label-settings', 'fb_icon5_display');
+		register_setting('fb-label-settings', 'fb_icon5_label');
+		register_setting('fb-label-settings', 'fb_icon5_link');
+		register_setting('fb-label-settings', 'fb_icon5_img');
+		register_setting('fb-label-settings', 'fb_icon5_bgcolor');
 }
 
-
+// Construct Plugin options form
 function floating_buttons_page(){
 		?>
 		  <h1>Floating Button Options</h1>
@@ -157,23 +178,42 @@ function floating_buttons_page(){
 	    <?php settings_fields( 'fb-label-settings' ); ?>
 	    <?php do_settings_sections( 'fb-label-settings' ); ?>
 	    <table class="form-table">
-	      <tr valign="top">
-	      <th scope="row">Icon 1 Label:</th>
-	      <td><input type="text" name="fb_icon1_label" value="<?php echo get_option( 'fb_icon1_label' ); ?>"  class="optionInput"/></td>
-				<td rowspan="2">
-					<?php jp_image_uploader( 'icon-img1', $width = 115, $height = 115 );?>
-				</td>
+				<tr>
+				<th scope="top">Icon 1 Display:</th>
+					<td>
+						<select name="fb_icon1_display" class="optionInput">
+					    <option value="inline-block" <?php selected(get_option('fb_icon1_display'), "inline-block"); ?>>Show</option>
+							<option value="none" <?php selected(get_option('fb_icon1_display'), "none"); ?>>Hide</option>
+					  </select>
+					</td>
+				</tr>
+	      <tr valign="row">
+		      <th scope="row">Icon 1 Label:</th>
+		      <td><input type="text" name="fb_icon1_label" value="<?php echo get_option( 'fb_icon1_label' ); ?>"  class="optionInput"/></td>
+					<td rowspan="2">
+						<?php jp_image_uploader( 'icon-img1', $width = 115, $height = 115 );?>
+					</td>
 	      </tr>
 				<tr>
-				<th scope="row">Icon 1 Link Address:</th>
-				<td><input type="text" name="fb_icon1_link" value="<?php echo get_option( 'fb_icon1_link' ); ?>"  class="optionInput"/></td>
+					<th scope="row">Icon 1 Link Address:</th>
+					<td><input type="text" name="fb_icon1_link" value="<?php echo get_option( 'fb_icon1_link' ); ?>"  class="optionInput"/></td>
 				</tr>
 	      <tr>
-	      <th scope="row">Icon 1 Background Color:</th>
-	      <td> <input class="jscolor" name ="fb_icon1_bgcolor" value="<?php echo get_option( 'fb_icon1_bgcolor' ); ?>"> </td>
-
+		      <th scope="row">Icon 1 Background Color:</th>
+		      <td> <input class="jscolor" name ="fb_icon1_bgcolor" value="<?php echo get_option( 'fb_icon1_bgcolor' ); ?>"> </td>
 	      </tr>
 
+				<tr><td></td></tr>
+
+				<tr>
+				<th scope="top">Icon 2 Display:</th>
+					<td>
+						<select name="fb_icon2_display" class="optionInput">
+					    <option value="inline-block" <?php selected(get_option('fb_icon2_display'), "inline-block"); ?>>Show</option>
+							<option value="none" <?php selected(get_option('fb_icon2_display'), "none"); ?>>Hide</option>
+					  </select>
+					</td>
+				</tr>
 				<th scope="row">Icon 2 Label:</th>
 	      <td><input type="text" name="fb_icon2_label" value="<?php echo get_option( 'fb_icon2_label' ); ?>"  class="optionInput"/></td>
 				<td rowspan="2">
@@ -187,11 +227,86 @@ function floating_buttons_page(){
 	      <tr>
 	      <th scope="row">Icon 2 Background Color:</th>
 	      <td> <input class="jscolor" name ="fb_icon2_bgcolor" value="<?php echo get_option( 'fb_icon2_bgcolor' ); ?>"> </td>
+	      </tr>
 
+				<tr><td></td></tr>
+
+				<tr>
+				<th scope="row">Icon 3 Display:</th>
+					<td>
+						<select name="fb_icon3_display" class="optionInput">
+					    <option value="inline-block" <?php selected(get_option('fb_icon3_display'), "inline-block"); ?>>Show</option>
+							<option value="none" <?php selected(get_option('fb_icon3_display'), "none"); ?>>Hide</option>
+					  </select>
+					</td>
+				</tr>
+	      <tr valign="row">
+		      <th scope="row">Icon 3 Label:</th>
+		      <td><input type="text" name="fb_icon3_label" value="<?php echo get_option( 'fb_icon3_label' ); ?>"  class="optionInput"/></td>
+					<td rowspan="2">
+						<?php jp_image_uploader( 'icon-img3', $width = 115, $height = 115 );?>
+					</td>
 	      </tr>
 				<tr>
-
+					<th scope="row">Icon 3 Link Address:</th>
+					<td><input type="text" name="fb_icon3_link" value="<?php echo get_option( 'fb_icon3_link' ); ?>"  class="optionInput"/></td>
 				</tr>
+	      <tr>
+		      <th scope="row">Icon 3 Background Color:</th>
+		      <td> <input class="jscolor" name ="fb_icon3_bgcolor" value="<?php echo get_option( 'fb_icon3_bgcolor' ); ?>"> </td>
+	      </tr>
+
+				<tr><td></td></tr>
+
+				<tr>
+				<th scope="top">Icon 4 Display:</th>
+					<td>
+						<select name="fb_icon4_display" class="optionInput">
+					    <option value="inline-block" <?php selected(get_option('fb_icon4_display'), "inline-block"); ?>>Show</option>
+							<option value="none" <?php selected(get_option('fb_icon4_display'), "none"); ?>>Hide</option>
+					  </select>
+					</td>
+				</tr>
+				<th scope="row">Icon 4 Label:</th>
+	      <td><input type="text" name="fb_icon4_label" value="<?php echo get_option( 'fb_icon4_label' ); ?>"  class="optionInput"/></td>
+				<td rowspan="2">
+					<?php jp_image_uploader( 'icon-img4', $width = 115, $height = 115 );?>
+				</td>
+	      </tr>
+				<tr>
+				<th scope="row">Icon 4 Link Address:</th>
+				<td><input type="text" name="fb_icon4_link" value="<?php echo get_option( 'fb_icon4_link' ); ?>"  class="optionInput"/></td>
+				</tr>
+	      <tr>
+	      <th scope="row">Icon 4 Background Color:</th>
+	      <td> <input class="jscolor" name ="fb_icon4_bgcolor" value="<?php echo get_option( 'fb_icon4_bgcolor' ); ?>"> </td>
+	      </tr>
+
+				<tr><td></td></tr>
+
+				<tr>
+				<th scope="top">Icon 5 Display:</th>
+					<td>
+						<select name="fb_icon5_display" class="optionInput">
+					    <option value="inline-block" <?php selected(get_option('fb_icon5_display'), "inline-block"); ?>>Show</option>
+							<option value="none" <?php selected(get_option('fb_icon5_display'), "none"); ?>>Hide</option>
+					  </select>
+					</td>
+				</tr>
+				<th scope="row">Icon 5 Label:</th>
+	      <td><input type="text" name="fb_icon5_label" value="<?php echo get_option( 'fb_icon5_label' ); ?>"  class="optionInput"/></td>
+				<td rowspan="2">
+					<?php jp_image_uploader( 'icon-img5', $width = 115, $height = 115 );?>
+				</td>
+	      </tr>
+				<tr>
+				<th scope="row">Icon 5 Link Address:</th>
+				<td><input type="text" name="fb_icon4_link" value="<?php echo get_option( 'fb_icon5_link' ); ?>"  class="optionInput"/></td>
+				</tr>
+	      <tr>
+	      <th scope="row">Icon 5 Background Color:</th>
+	      <td> <input class="jscolor" name ="fb_icon5_bgcolor" value="<?php echo get_option( 'fb_icon5_bgcolor' ); ?>"> </td>
+	      </tr>
 	    </table>
 	    <?php submit_button(); ?>
   	</form>
