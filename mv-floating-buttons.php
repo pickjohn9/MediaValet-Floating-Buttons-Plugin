@@ -121,7 +121,7 @@ add_action( 'admin_menu', 'floating_buttons_menu' );
 function floating_buttons_menu(){
 
   $page_title = 'WordPress Floating Button Options';
-  $menu_title = 'Floating Button Options';
+  $menu_title = 'Floating Buttons';
   $capability = 'manage_options';
   $menu_slug  = 'floating-buttons-options';
   $function   = 'floating_buttons_form';
@@ -139,7 +139,7 @@ function floating_buttons_menu(){
   add_action('admin_init', 'update_button_options');
 }
 
-function update_button_options($key){
+function update_button_options(){
 		register_setting('fb-label-settings', 'fb_icon1_display');
 		register_setting('fb-label-settings', 'fb_icon1_label');
 		register_setting('fb-label-settings', 'fb_icon1_link');
@@ -174,6 +174,7 @@ function update_button_options($key){
 // Construct the full plugin options form
 function floating_buttons_form(){
 		?>
+
 		  <h1>Floating Button Options</h1>
 			<form id="floatingButtonsOptionsForm" method="post" action="options.php">
 	    <?php settings_fields( 'fb-label-settings' ); ?>
@@ -199,8 +200,8 @@ function construct_button_options($key) {
 	<th scope="top">Icon <?php echo $key ?> Display:</th>
 		<td>
 			<select name="fb_icon<?php echo $key ?>_display" class="optionInput">
-				<option value="inline-block" <?php selected(get_option('fb_icon' . $key . '_display'), "inline-block"); ?>>Show</option>
 				<option value="none" <?php selected(get_option('fb_icon' . $key .  '_display'), "none"); ?>>Hide</option>
+				<option value="inline-block" <?php selected(get_option('fb_icon' . $key . '_display'), "inline-block"); ?>>Show</option>
 			</select>
 		</td>
 	</tr>
@@ -228,7 +229,7 @@ function construct_button_options($key) {
 function printIcon($name, $width, $height) {
 	// Set variables
 	$options = get_option( 'fb_icon1_img' );
-	$default_image = plugins_url('img/demo.png', __FILE__);
+	$default_image = plugins_url('img/default.png', __FILE__);
 
 	if ( !empty( $options[$name] ) ) {
 			$image_attributes = wp_get_attachment_image_src( $options[$name], array( $width, $height ) );
@@ -247,7 +248,7 @@ function jp_image_uploader( $name, $width, $height ) {
 
     // Set variables
     $options = get_option( 'fb_icon1_img' );
-    $default_image = plugins_url('img/demo.png', __FILE__);
+    $default_image = plugins_url('img/default.png', __FILE__);
 
     if ( !empty( $options[$name] ) ) {
         $image_attributes = wp_get_attachment_image_src( $options[$name], array( $width, $height ) );
